@@ -1,0 +1,39 @@
+{
+  "name": "villa-aurea",
+  "url": "https://www.airbnb.co.uk/rooms/1282620047333334876",
+  "title": "Chic 3BR Pool Villa • Canggu • Walk to Reload Gym",
+  "description": "",
+  "amenities": [],
+  "images": [
+    {
+      "label": "hero",
+      "category": "hero",
+      "path": "/villas/villa-aurea/hero.jpg",
+      "size_kb": 259
+    },
+    {
+      "label": "pool",
+      "category": "pool",
+      "path": "/villas/villa-aurea/pool.jpg",
+      "size_kb": 271
+    },
+    {
+      "label": "exterior",
+      "category": "exterior",
+      "path": "/villas/villa-aurea/exterior.jpg",
+      "size_kb": 221
+    },
+    {
+      "label": "exterior-2",
+      "category": "exterior",
+      "path": "/villas/villa-aurea/exterior-2.jpg",
+      "size_kb": 200
+    },
+    {
+      "label": "detail-1",
+      "category": "detail",
+      "path": "/villas/villa-aurea/detail-1.jpg",
+      "size_kb": 145
+    }
+  ]
+}
