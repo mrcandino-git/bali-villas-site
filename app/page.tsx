@@ -161,7 +161,7 @@ export default function Home() {
 
         <section className="relative h-[70vh] min-h-[400px] overflow-hidden">
           <Image
-            src="/villas/villa-aurea/exterior.jpg"
+            src="/villas/villa-vittoria/hero.jpg"
             alt="Bali villa at golden hour"
             fill
             className="object-cover object-[center_35%]"
