@@ -10,62 +10,6 @@ export default function Home() {
       <Navbar />
 
       <main className="overflow-x-hidden">
-        <section className="bg-sand py-16 md:hidden">
-          <section className="hidden md:block bg-sand py-24 md:py-36">
-  <div className="max-w-[1400px] mx-auto px-6 md:px-16 lg:px-24">
-
-    <div className="flex items-baseline justify-between mb-5">
-      <h2 className="font-serif font-light text-[36px] md:text-[48px] text-off-black">
-        Our Villas
-      </h2>
-      <a
-        href={WHATSAPP_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="hidden md:block font-sans text-[11px] uppercase tracking-[0.12em] text-soft-brown pb-px border-b border-transparent hover:border-soft-brown transition-colors duration-300"
-      >
-        Book Direct on WhatsApp →
-      </a>
-    </div>
-
-    <div className="w-full h-px bg-beige mb-8" />
-
-    <p className="font-serif italic text-[18px] md:text-[22px] text-soft-brown leading-[1.5] mb-12">
-      Five properties. Three neighborhoods. One standard of excellence.
-    </p>
-
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
-      {villas.slice(0, 3).map((villa, i) => (
-        <VillaCard key={villa.slug} villa={villa} delay={i * 90} />
-      ))}
-    </div>
-
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-10 mt-8 md:mt-10 lg:w-2/3 lg:mx-auto">
-      {villas.slice(3).map((villa, i) => (
-        <VillaCard key={villa.slug} villa={villa} delay={(i + 3) * 90} />
-      ))}
-    </div>
-
-  </div>
-</section>
-  <div className="max-w-[1400px] mx-auto px-6">
-    <div className="mb-8">
-      <h2 className="font-serif font-light text-[32px] text-off-black">
-        Our Villas
-      </h2>
-      <div className="w-full h-px bg-beige mt-4 mb-4" />
-      <p className="font-serif italic text-[18px] text-soft-brown leading-[1.5]">
-        Five properties. Three neighborhoods. One standard of excellence.
-      </p>
-    </div>
-
-    <div className="flex flex-col gap-10">
-      {villas.map((villa) => (
-        <VillaCard key={villa.slug} villa={villa} />
-      ))}
-    </div>
-  </div>
-</section>
         <section className="relative h-screen min-h-[600px]">
           <Image
             src="/villas/villa-vittoria/hero.jpg"
@@ -83,8 +27,8 @@ export default function Home() {
             </p>
             <h1 className="font-serif font-light italic text-white-warm leading-[1.02] text-[48px] sm:text-[62px] md:text-[78px] lg:text-[92px] max-w-[720px]">
               Private Villas in Bali.
-            <br />
-               Designed for living, not staying.
+              <br />
+              Designed for living, not staying.
             </h1>
             <p className="font-sans font-light text-[13px] text-white-warm/44 mt-4 mb-9">
               Five private villas. Book directly. No agencies.
@@ -96,7 +40,7 @@ export default function Home() {
               className="group font-sans text-[12px] uppercase tracking-[0.14em] text-white-warm flex items-center gap-2 w-fit"
             >
               <span className="border-b border-white-warm/38 group-hover:border-white-warm transition-colors duration-300 pb-px">
-                Check Dates & Rates
+                Check Dates &amp; Rates
               </span>
               <span className="transition-transform duration-300 group-hover:translate-x-1">
                 →
@@ -217,6 +161,53 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="bg-sand py-24 md:py-36">
+          <div className="max-w-[1400px] mx-auto px-6 md:px-16 lg:px-24">
+            <ScrollReveal>
+              <div className="flex items-baseline justify-between mb-5">
+                <h2 className="font-serif font-light text-[36px] md:text-[48px] text-off-black">
+                  Our Villas
+                </h2>
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hidden md:block font-sans text-[11px] uppercase tracking-[0.12em] text-soft-brown pb-px border-b border-transparent hover:border-soft-brown transition-colors duration-300"
+                >
+                  Book Direct on WhatsApp →
+                </a>
+              </div>
+              <div className="w-full h-px bg-beige mb-8" />
+              <p className="font-serif italic text-[18px] md:text-[22px] text-soft-brown leading-[1.5] mb-12">
+                Five properties. Three neighborhoods. One standard of excellence.
+              </p>
+            </ScrollReveal>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+              {villas.slice(0, 3).map((villa, i) => (
+                <VillaCard key={villa.slug} villa={villa} delay={i * 90} />
+              ))}
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-10 mt-8 md:mt-10 lg:w-2/3 lg:mx-auto">
+              {villas.slice(3).map((villa, i) => (
+                <VillaCard key={villa.slug} villa={villa} delay={(i + 3) * 90} />
+              ))}
+            </div>
+
+            <div className="mt-12 md:hidden text-center">
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-sans text-[12px] uppercase tracking-[0.12em] text-soft-brown border-b border-soft-brown pb-1"
+              >
+                Book Direct on WhatsApp →
+              </a>
+            </div>
+          </div>
+        </section>
+
         <section className="relative h-[70vh] min-h-[400px] overflow-hidden">
           <Image
             src="/villas/villa-vittoria/hero.jpg"
@@ -230,61 +221,59 @@ export default function Home() {
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
             <ScrollReveal>
               <p className="font-serif font-light italic text-white-warm text-[28px] sm:text-[38px] md:text-[50px] lg:text-[58px] leading-[1.15]">
-                You don’t visit Bali.
-                You arrive into it.
-                <br />
+                Bali, at its most private.
               </p>
             </ScrollReveal>
             <ScrollReveal delay={200}>
               <p className="font-sans text-[10px] md:text-[11px] uppercase tracking-[0.20em] text-white-warm/50 mt-6">
-                This is Bali.
+                Quiet luxury. Island pace.
               </p>
             </ScrollReveal>
           </div>
         </section>
 
         <section className="bg-cream py-24 md:py-32">
-  <div className="max-w-[1100px] mx-auto px-6 md:px-16 lg:px-24 text-center">
-    <h2 className="font-serif font-light italic text-[32px] md:text-[42px] text-off-black">
-      Why book direct?
-    </h2>
-    <div className="w-20 h-px bg-warm-tan mx-auto mt-5 mb-8" />
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-[820px] mx-auto">
-      <div className="bg-white/60 border border-beige p-6">
-        <p className="font-sans text-[11px] uppercase tracking-[0.18em] text-warm-tan mb-3">
-          Better Value
-        </p>
-        <p className="font-sans font-light text-[15px] text-soft-brown leading-[1.8]">
-          Best direct rates and more flexible arrangements than booking through platforms.
-        </p>
-      </div>
-      <div className="bg-white/60 border border-beige p-6">
-        <p className="font-sans text-[11px] uppercase tracking-[0.18em] text-warm-tan mb-3">
-          Direct Contact
-        </p>
-        <p className="font-sans font-light text-[15px] text-soft-brown leading-[1.8]">
-          Speak directly with our team on WhatsApp for fast replies and personalized assistance.
-        </p>
-      </div>
-      <div className="bg-white/60 border border-beige p-6">
-        <p className="font-sans text-[11px] uppercase tracking-[0.18em] text-warm-tan mb-3">
-          Priority Support
-        </p>
-        <p className="font-sans font-light text-[15px] text-soft-brown leading-[1.8]">
-          Special requests, arrival details, and stay preferences handled personally.
-        </p>
-      </div>
-      <div className="bg-white/60 border border-beige p-6">
-        <p className="font-sans text-[11px] uppercase tracking-[0.18em] text-warm-tan mb-3">
-          Trusted Choice
-        </p>
-        <p className="font-sans font-light text-[15px] text-soft-brown leading-[1.8]">
-          View our Airbnb listings for reviews and authenticity, then book direct with confidence.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
+          <div className="max-w-[1100px] mx-auto px-6 md:px-16 lg:px-24 text-center">
+            <h2 className="font-serif font-light italic text-[32px] md:text-[42px] text-off-black">
+              Why book direct?
+            </h2>
+            <div className="w-20 h-px bg-warm-tan mx-auto mt-5 mb-8" />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-[820px] mx-auto">
+              <div className="bg-white/60 border border-beige p-6">
+                <p className="font-sans text-[11px] uppercase tracking-[0.18em] text-warm-tan mb-3">
+                  Better Value
+                </p>
+                <p className="font-sans font-light text-[15px] text-soft-brown leading-[1.8]">
+                  Best direct rates and more flexible arrangements than booking through platforms.
+                </p>
+              </div>
+              <div className="bg-white/60 border border-beige p-6">
+                <p className="font-sans text-[11px] uppercase tracking-[0.18em] text-warm-tan mb-3">
+                  Direct Contact
+                </p>
+                <p className="font-sans font-light text-[15px] text-soft-brown leading-[1.8]">
+                  Speak directly with our team on WhatsApp for fast replies and personalized assistance.
+                </p>
+              </div>
+              <div className="bg-white/60 border border-beige p-6">
+                <p className="font-sans text-[11px] uppercase tracking-[0.18em] text-warm-tan mb-3">
+                  Priority Support
+                </p>
+                <p className="font-sans font-light text-[15px] text-soft-brown leading-[1.8]">
+                  Special requests, arrival details, and stay preferences handled personally.
+                </p>
+              </div>
+              <div className="bg-white/60 border border-beige p-6">
+                <p className="font-sans text-[11px] uppercase tracking-[0.18em] text-warm-tan mb-3">
+                  Trusted Choice
+                </p>
+                <p className="font-sans font-light text-[15px] text-soft-brown leading-[1.8]">
+                  View our Airbnb listings for reviews and authenticity, then book direct with confidence.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
 
         <section className="bg-cream py-24 md:py-44">
           <div className="max-w-[1400px] mx-auto px-6 md:px-16 lg:px-24">
@@ -389,11 +378,13 @@ export default function Home() {
                 Message Us on WhatsApp →
               </a>
             </ScrollReveal>
+
             <ScrollReveal delay={330}>
               <p className="font-sans text-[11px] uppercase tracking-[0.14em] text-white-warm/42 mt-5">
-               Limited availability for peak dates
+                Limited availability for peak dates
               </p>
             </ScrollReveal>
+
             <ScrollReveal delay={380}>
               <p className="font-sans text-[12px] text-white-warm/38 mt-8">
                 +62 821-4657-4879
@@ -415,8 +406,6 @@ export default function Home() {
               </p>
               <p className="font-sans font-light text-[13px] text-white-warm/35 mt-3 leading-[1.7]">
                 Private luxury residences in Bali
-                <br />
-                in Bali, Indonesia.
               </p>
             </div>
             <div className="flex flex-col gap-3.5">
