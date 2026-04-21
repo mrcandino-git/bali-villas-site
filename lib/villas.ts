@@ -13,10 +13,10 @@ export interface Villa {
 }
 
 export const WHATSAPP_URL =
-  "https://wa.me/6282146574879?text=Hi%2C%20I%E2%80%99d%20like%20to%20enquire%20about%20a%20villa.";
+  "https://wa.me/6282146574879?text=Hi%2C%20I%E2%80%99d%20like%20to%20check%20availability%20and%20the%20best%20direct%20rate%20for%20your%20villas%20in%20Bali.";
 
 export function villaWhatsappUrl(villa: Villa) {
-  return `https://wa.me/6282146574879?text=Hi%2C%20I%E2%80%99d%20like%20to%20check%20availability%20for%20${encodeURIComponent(villa.name)}%20in%20${encodeURIComponent(villa.location)}.`;
+  return `https://wa.me/6282146574879?text=Hi%2C%20I%E2%80%99d%20like%20to%20check%20availability%20and%20the%20best%20direct%20rate%20for%20${encodeURIComponent(villa.name)}%20in%20${encodeURIComponent(villa.location)}.`;
 }
 
 export function villaHeroImage(villa: Villa) {
@@ -44,7 +44,8 @@ export const villas: Villa[] = [
     ],
     accentColor: "#c9a96e",
     airbnb: "https://www.airbnb.co.uk/rooms/581864799939880567",
-    icalUrl: "https://www.airbnb.com.au/calendar/ical/581864799939880567.ics?t=6ffc1e561e2c498d899c0d03f7171364",
+    icalUrl:
+      "https://www.airbnb.com.au/calendar/ical/581864799939880567.ics?t=6ffc1e561e2c498d899c0d03f7171364",
   },
   {
     slug: "lumira",
@@ -66,7 +67,8 @@ export const villas: Villa[] = [
     ],
     accentColor: "#5a8a7a",
     airbnb: "https://www.airbnb.co.uk/rooms/1173027803281523078",
-    icalUrl: "https://www.airbnb.com.au/calendar/ical/1173027803281523078.ics?t=696716cc80b741b6ae0e9be2af9918d6",
+    icalUrl:
+      "https://www.airbnb.com.au/calendar/ical/1173027803281523078.ics?t=696716cc80b741b6ae0e9be2af9918d6",
   },
   {
     slug: "salty",
@@ -88,7 +90,8 @@ export const villas: Villa[] = [
     ],
     accentColor: "#6b8fa3",
     airbnb: "https://www.airbnb.co.uk/rooms/21816459",
-    icalUrl: "https://www.airbnb.com.au/calendar/ical/21816459.ics?t=f90fbf33be464e04b930281ab584d47c",
+    icalUrl:
+      "https://www.airbnb.com.au/calendar/ical/21816459.ics?t=f90fbf33be464e04b930281ab584d47c",
   },
   {
     slug: "lux",
@@ -110,7 +113,8 @@ export const villas: Villa[] = [
     ],
     accentColor: "#8a7a6a",
     airbnb: "https://www.airbnb.co.uk/rooms/1007160083731851693",
-    icalUrl: "https://www.airbnb.com.au/calendar/ical/1007160083731851693.ics?t=a7cb143eb5c74b18b117f4ce92515387",
+    icalUrl:
+      "https://www.airbnb.com.au/calendar/ical/1007160083731851693.ics?t=a7cb143eb5c74b18b117f4ce92515387",
   },
   {
     slug: "aurea",
@@ -132,6 +136,7 @@ export const villas: Villa[] = [
     ],
     accentColor: "#b8860b",
     airbnb: "https://www.airbnb.co.uk/rooms/1282620047333334876",
-    icalUrl: "https://www.airbnb.com.au/calendar/ical/1282620047333334876.ics?t=f0be0a7197cd4f6cafce7819538ffed8",
+    icalUrl:
+      "https://www.airbnb.com.au/calendar/ical/1282620047333334876.ics?t=f0be0a7197cd4f6cafce7819538ffed8",
   },
 ];
