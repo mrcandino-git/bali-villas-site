@@ -10,6 +10,62 @@ export default function Home() {
       <Navbar />
 
       <main className="overflow-x-hidden">
+        <section className="bg-sand py-16 md:hidden">
+          <section className="hidden md:block bg-sand py-24 md:py-36">
+  <div className="max-w-[1400px] mx-auto px-6 md:px-16 lg:px-24">
+
+    <div className="flex items-baseline justify-between mb-5">
+      <h2 className="font-serif font-light text-[36px] md:text-[48px] text-off-black">
+        Our Villas
+      </h2>
+      <a
+        href={WHATSAPP_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hidden md:block font-sans text-[11px] uppercase tracking-[0.12em] text-soft-brown pb-px border-b border-transparent hover:border-soft-brown transition-colors duration-300"
+      >
+        Book Direct on WhatsApp →
+      </a>
+    </div>
+
+    <div className="w-full h-px bg-beige mb-8" />
+
+    <p className="font-serif italic text-[18px] md:text-[22px] text-soft-brown leading-[1.5] mb-12">
+      Five properties. Three neighborhoods. One standard of excellence.
+    </p>
+
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+      {villas.slice(0, 3).map((villa, i) => (
+        <VillaCard key={villa.slug} villa={villa} delay={i * 90} />
+      ))}
+    </div>
+
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-10 mt-8 md:mt-10 lg:w-2/3 lg:mx-auto">
+      {villas.slice(3).map((villa, i) => (
+        <VillaCard key={villa.slug} villa={villa} delay={(i + 3) * 90} />
+      ))}
+    </div>
+
+  </div>
+</section>
+  <div className="max-w-[1400px] mx-auto px-6">
+    <div className="mb-8">
+      <h2 className="font-serif font-light text-[32px] text-off-black">
+        Our Villas
+      </h2>
+      <div className="w-full h-px bg-beige mt-4 mb-4" />
+      <p className="font-serif italic text-[18px] text-soft-brown leading-[1.5]">
+        Five properties. Three neighborhoods. One standard of excellence.
+      </p>
+    </div>
+
+    <div className="flex flex-col gap-10">
+      {villas.map((villa) => (
+        <VillaCard key={villa.slug} villa={villa} />
+      ))}
+    </div>
+  </div>
+</section>
         <section className="relative h-screen min-h-[600px]">
           <Image
             src="/villas/villa-vittoria/hero.jpg"
