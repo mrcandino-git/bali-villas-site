@@ -177,12 +177,11 @@ export default function Home() {
                 You don’t visit Bali.
                 You arrive into it.
                 <br />
-                why you came.
               </p>
             </ScrollReveal>
             <ScrollReveal delay={200}>
               <p className="font-sans text-[10px] md:text-[11px] uppercase tracking-[0.20em] text-white-warm/50 mt-6">
-                This is Bali at its most personal.
+                This is Bali.
               </p>
             </ScrollReveal>
           </div>
