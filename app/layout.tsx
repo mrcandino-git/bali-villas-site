@@ -26,22 +26,25 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <html lang="en" className={`${cormorant.variable} ${dmSans.variable}`}>
+      <head />
       <body>
         {children}
 
         <Script
+          id="ga-loader"
+          async
           src="https://www.googletagmanager.com/gtag/js?id=G-SKQ0PD1D4G"
           strategy="afterInteractive"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="ga-init" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
+            function gtag(){window.dataLayer.push(arguments);}
             window.gtag = gtag;
             gtag('js', new Date());
             gtag('config', 'G-SKQ0PD1D4G');
