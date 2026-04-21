@@ -57,6 +57,18 @@ export default function VillaAvailability({
           }}
         />
 
+        <div className="flex flex-wrap items-center gap-6 mt-4 text-[12px] text-stone-500">
+          <div className="flex items-center gap-2">
+            <span className="inline-block w-4 h-4 rounded-sm bg-stone-300" />
+            <span>Occupied</span>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <span className="inline-block w-4 h-4 rounded-sm bg-white border border-stone-300" />
+            <span>Available</span>
+          </div>
+        </div>
+
         <p className="text-sm text-stone-500 mt-4">
           {loading
             ? "Loading live availability..."
