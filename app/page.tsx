@@ -422,15 +422,20 @@ export default function Home() {
                 Contact
               </a>
               <a
-                href="https://wa.me/6282146574879"
-                target="_blank"
-                onClick={() => {
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+
                   if (typeof window !== "undefined" && window.gtag) {
                     window.gtag("event", "click_whatsapp", {
                       event_category: "engagement",
                       event_label: "homepage_whatsapp",
                     });
                   }
+
+                  setTimeout(() => {
+                    window.open("https://wa.me/6282146574879", "_blank");
+                  }, 300);
                 }}
               >
                 +62 821-4657-4879
