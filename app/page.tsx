@@ -424,8 +424,14 @@ export default function Home() {
               <a
                 href="https://wa.me/6282146574879"
                 target="_blank"
-                rel="noopener noreferrer"
-                className="font-sans text-[12px] text-white-warm/50 hover:text-white-warm transition-colors duration-300 w-fit"
+                onClick={() => {
+                  if (typeof window !== "undefined" && window.gtag) {
+                    window.gtag("event", "click_whatsapp", {
+                      event_category: "engagement",
+                      event_label: "homepage_whatsapp",
+                    });
+                  }
+                }}
               >
                 +62 821-4657-4879
               </a>
