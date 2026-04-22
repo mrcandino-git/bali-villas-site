@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import fs from "fs";
 import path from "path";
-import { Villa, WHATSAPP_URL } from "@/lib/villas";
+import { Villa, defaultWhatsappUrl } from "@/lib/villas";
 import VillaAvailability from "@/components/VillaAvailability";
 
 const WA_ICON = (
@@ -52,7 +52,7 @@ export default function VillaPage({
         </Link>
 
         <a
-          href={WHATSAPP_URL}
+          href={defaultWhatsappUrl()}
           target="_blank"
           rel="noopener noreferrer"
           className="px-5 py-2 bg-stone-900 text-white text-xs tracking-widest uppercase rounded-full hover:bg-stone-700 transition-colors"
@@ -101,7 +101,7 @@ export default function VillaPage({
           </div>
 
           <a
-            href={WHATSAPP_URL}
+            href={defaultWhatsappUrl()}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-white text-stone-900 text-sm tracking-widest uppercase rounded-full hover:bg-stone-100 transition-colors"
@@ -149,7 +149,7 @@ export default function VillaPage({
           </p>
 
           <a
-            href={WHATSAPP_URL}
+            href={defaultWhatsappUrl()}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-3 mt-10 px-7 py-4 bg-stone-900 text-white text-sm tracking-widest uppercase rounded-full hover:bg-stone-700 transition-colors"
@@ -198,7 +198,7 @@ export default function VillaPage({
         </p>
 
         <a
-          href={WHATSAPP_URL}
+          href={defaultWhatsappUrl()}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-white text-stone-900 text-sm tracking-widest uppercase rounded-full font-semibold hover:bg-stone-100 transition-colors"
@@ -217,7 +217,7 @@ export default function VillaPage({
           <span>© 2026 · All rights reserved</span>
 
           <a
-            href={WHATSAPP_URL}
+            href={defaultWhatsappUrl()}
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-white transition-colors"
@@ -228,7 +228,7 @@ export default function VillaPage({
       </footer>
 
       <a
-        href={WHATSAPP_URL}
+        href={defaultWhatsappUrl()}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"
