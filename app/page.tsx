@@ -26,9 +26,9 @@ export default function Home() {
               Seminyak · Petitenget · Canggu
             </p>
             <h1 className="font-serif font-light italic text-white-warm leading-[1.02] text-[48px] sm:text-[62px] md:text-[78px] lg:text-[92px] max-w-[720px]">
-              Private Villas in Bali.
+              Private Luxury Villas in Bali.
               <br />
-              Designed for living, not staying.
+              Book Direct.
             </h1>
             <p className="font-sans font-light text-[13px] text-white-warm/44 mt-4 mb-9">
               Five private villas. Book directly. No agencies.
