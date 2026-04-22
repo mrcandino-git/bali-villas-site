@@ -19,27 +19,27 @@ export default function VillasPage() {
 
         {/* ─── PAGE HERO ────────────────────────────────────────── */}
         <section className="relative h-[55vh] min-h-[380px] overflow-hidden">
-  <Image
-    src="/villas/villa-vittoria/hero.jpg"
-    alt="Our Villas"
-    fill
-    priority
-    className="object-cover"
-  />
-  <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/58" />
+          <Image
+            src="/villas/villa-vittoria/hero.jpg"
+            alt="Our Villas"
+            fill
+            priority
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/58" />
 
-  <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 pt-16">
-    <p className="font-sans text-[10px] uppercase tracking-[0.28em] text-white/70 mb-5">
-      Seminyak · Petitenget · Canggu
-    </p>
-    <h1 className="font-serif font-light italic text-white text-[42px] sm:text-[56px] md:text-[68px] leading-[1.05]">
-      Our Villas
-    </h1>
-    <p className="font-sans font-light text-[13px] text-white/80 mt-4">
-      Five private villas. Direct booking.
-    </p>
-  </div>
-</section>
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 pt-16">
+            <p className="font-sans text-[10px] uppercase tracking-[0.28em] text-white/70 mb-5">
+              Seminyak · Petitenget · Canggu
+            </p>
+            <h1 className="font-serif font-light italic text-white text-[42px] sm:text-[56px] md:text-[68px] leading-[1.05]">
+              Our Villas
+            </h1>
+            <p className="font-sans font-light text-[13px] text-white/80 mt-4">
+              Five private villas. Direct booking.
+            </p>
+          </div>
+        </section>
         {/* ─── INTRO ────────────────────────────────────────────── */}
         <section className="bg-cream py-20 md:py-28">
           <div className="max-w-[1400px] mx-auto px-6 md:px-16 lg:px-24">
@@ -80,9 +80,8 @@ export default function VillasPage() {
 
                   <ScrollReveal>
                     <div
-                      className={`grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center ${
-                        !isEven ? "md:[&>*:first-child]:order-2" : ""
-                      }`}
+                      className={`grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center ${!isEven ? "md:[&>*:first-child]:order-2" : ""
+                        }`}
                     >
                       {/* Image */}
                       <Link href={detailUrl} className="group block">
@@ -189,29 +188,51 @@ export default function VillasPage() {
       </main>
 
       {/* ─── FOOTER ───────────────────────────────────────────── */}
-      <footer className="bg-off-black py-16">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-16 lg:px-24">
-          <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-8">
-            <div>
-              <Link href="/" className="font-sans text-[11px] uppercase tracking-[0.22em] text-white-warm/75 hover:text-white-warm transition-colors duration-300">
-                Bali Five Stars Villas
-              </Link>
-              <p className="font-sans font-light text-[13px] text-white-warm/35 mt-3 leading-[1.7]">
-                Luxury villa rentals in Bali, Indonesia.
-              </p>
-            </div>
-            <div className="flex flex-col gap-3">
-              <Link href="/" className="font-sans text-[12px] text-white-warm/50 hover:text-white-warm transition-colors duration-300 w-fit">Home</Link>
-              <a href="/contact" className="font-sans text-[12px] text-white-warm/50 hover:text-white-warm transition-colors duration-300 w-fit">Contact</a>
-              href="https://api.whatsapp.com/send?phone=6282146574879&text=Hi%2C%20I%E2%80%99d%20like%20to%20check%20availability%20and%20the%20best%20direct%20rate%20for%20your%20villas%20in%20Bali."
-                +62 821-4657-4879
-              </a>
-            </div>
-          </div>
-          <div className="w-full h-px bg-white-warm/8 mt-10 mb-5" />
-          <p className="font-sans text-[11px] text-white-warm/22">© 2025 Bali Five Stars Villas · All rights reserved</p>
-        </div>
-      </footer>
+      <footer className="bg-off-black py-16 md:py-20">
+  <div className="max-w-[1400px] mx-auto px-6 md:px-16 lg:px-24">
+    <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-10 md:gap-0">
+      <div>
+        <p className="font-sans text-[11px] uppercase tracking-[0.22em] text-white-warm/75">
+          Bali Five Stars Villas
+        </p>
+        <p className="font-sans font-light text-[13px] text-white-warm/35 mt-3 leading-[1.7]">
+          Luxury villa rentals in Bali, Indonesia.
+        </p>
+      </div>
+
+      <div className="flex flex-col gap-3">
+        <Link
+          href="/"
+          className="font-sans text-[12px] text-white-warm/50 hover:text-white-warm transition-colors duration-300 w-fit"
+        >
+          Home
+        </Link>
+
+        <a
+          href="/contact"
+          className="font-sans text-[12px] text-white-warm/50 hover:text-white-warm transition-colors duration-300 w-fit"
+        >
+          Contact
+        </a>
+
+        <a
+          href="https://api.whatsapp.com/send?phone=6282146574879&text=Hi%2C%20I%E2%80%99d%20like%20to%20check%20availability%20and%20the%20best%20direct%20rate%20for%20your%20villas%20in%20Bali."
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-sans text-[12px] text-white-warm/50 hover:text-white-warm transition-colors duration-300 w-fit"
+        >
+          +62 821-4657-4879
+        </a>
+      </div>
+    </div>
+
+    <div className="w-full h-px bg-white-warm/8 mt-10 mb-5" />
+
+    <p className="font-sans text-[11px] text-white-warm/22">
+      © 2025 Bali Five Stars Villas · All rights reserved
+    </p>
+  </div>
+</footer>
     </>
   );
 }
