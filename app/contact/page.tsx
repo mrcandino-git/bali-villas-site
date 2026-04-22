@@ -38,7 +38,7 @@ export default function ContactPage() {
               </p>
 
               <a
-                href={WHATSAPP_URL}
+                href={defaultWhatsappUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block mt-8 font-sans text-[11px] uppercase tracking-[0.16em] text-off-black border border-off-black/30 hover:bg-off-black hover:text-white-warm px-8 py-[16px] transition-all duration-300"
