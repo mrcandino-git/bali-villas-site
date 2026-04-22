@@ -16,9 +16,24 @@ const WA_ICON = (
   </svg>
 );
 
-function openWhatsApp(url: string) {
+function openWhatsApp(url: string, locationLabel: string) {
   if (typeof window === "undefined") return;
-  window.location.href = url;
+
+  const win = window as Window & {
+    gtag?: (...args: any[]) => void;
+  };
+
+  if (typeof win.gtag === "function") {
+    win.gtag("event", "generate_lead", {
+      method: "WhatsApp",
+      event_category: "engagement",
+      event_label: locationLabel,
+    });
+  }
+
+  setTimeout(() => {
+    window.location.href = url;
+  }, 250);
 }
 
 export default function VillaPage({
@@ -43,7 +58,7 @@ export default function VillaPage({
 
         <button
           type="button"
-          onClick={() => openWhatsApp(villaWaUrl)}
+          onClick={() => openWhatsApp(villaWaUrl, "villa_header_enquire")}
           className="rounded-full bg-stone-900 px-6 py-3 text-white text-xs tracking-widest uppercase hover:bg-stone-700 transition-colors"
         >
           Enquire
@@ -82,7 +97,7 @@ export default function VillaPage({
 
           <button
             type="button"
-            onClick={() => openWhatsApp(genericWaUrl)}
+            onClick={() => openWhatsApp(genericWaUrl, "villa_hero_whatsapp")}
             className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-white text-stone-900 text-sm tracking-widest uppercase rounded-full hover:bg-stone-100 transition-colors"
           >
             {WA_ICON}
@@ -103,7 +118,7 @@ export default function VillaPage({
 
           <button
             type="button"
-            onClick={() => openWhatsApp(genericWaUrl)}
+            onClick={() => openWhatsApp(genericWaUrl, "villa_about_whatsapp")}
             className="inline-flex items-center justify-center gap-3 mt-10 px-7 py-4 bg-stone-900 text-white text-sm tracking-widest uppercase rounded-full hover:bg-stone-700 transition-colors"
           >
             {WA_ICON}
@@ -151,7 +166,7 @@ export default function VillaPage({
 
         <button
           type="button"
-          onClick={() => openWhatsApp(genericWaUrl)}
+          onClick={() => openWhatsApp(genericWaUrl, "villa_cta_whatsapp")}
           className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-white text-stone-900 text-sm tracking-widest uppercase rounded-full font-semibold hover:bg-stone-100 transition-colors"
         >
           {WA_ICON}
@@ -169,7 +184,7 @@ export default function VillaPage({
 
           <button
             type="button"
-            onClick={() => openWhatsApp(genericWaUrl)}
+            onClick={() => openWhatsApp(genericWaUrl, "villa_footer_whatsapp")}
             className="hover:text-white transition-colors"
           >
             +62 821-4657-4879
@@ -179,7 +194,7 @@ export default function VillaPage({
 
       <button
         type="button"
-        onClick={() => openWhatsApp(villaWaUrl)}
+        onClick={() => openWhatsApp(villaWaUrl, "villa_floating_whatsapp")}
         aria-label="Chat on WhatsApp"
         className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 bg-[#25D366] rounded-full shadow-lg hover:bg-[#1ebe5d] transition-colors"
       >
