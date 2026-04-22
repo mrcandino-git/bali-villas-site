@@ -12,11 +12,41 @@ export interface Villa {
   icalUrl?: string;
 }
 
-export const WHATSAPP_URL =
-  "https://wa.me/6282146574879?text=Hi%2C%20I%E2%80%99d%20like%20to%20check%20availability%20and%20the%20best%20direct%20rate%20for%20your%20villas%20in%20Bali.";
+export const WHATSAPP_NUMBER = "6282146574879";
+
+export function defaultWhatsappUrl() {
+  const message =
+    "Hi, I’d like to check availability and the best direct rate for your villas in Bali.";
+  const encodedMessage = encodeURIComponent(message);
+
+  if (typeof window !== "undefined") {
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+    if (isMobile) {
+      return `whatsapp://send?phone=${WHATSAPP_NUMBER}&text=${encodedMessage}`;
+    }
+
+    return `https://web.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodedMessage}`;
+  }
+
+  return `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodedMessage}`;
+}
 
 export function villaWhatsappUrl(villa: Villa) {
-  return `https://wa.me/6282146574879?text=Hi%2C%20I%E2%80%99d%20like%20to%20check%20availability%20and%20the%20best%20direct%20rate%20for%20${encodeURIComponent(villa.name)}%20in%20${encodeURIComponent(villa.location)}.`;
+  const message = `Hi, I’d like to check availability and the best direct rate for ${villa.name} in ${villa.location}.`;
+  const encodedMessage = encodeURIComponent(message);
+
+  if (typeof window !== "undefined") {
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+    if (isMobile) {
+      return `whatsapp://send?phone=${WHATSAPP_NUMBER}&text=${encodedMessage}`;
+    }
+
+    return `https://web.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodedMessage}`;
+  }
+
+  return `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodedMessage}`;
 }
 
 export function villaHeroImage(villa: Villa) {

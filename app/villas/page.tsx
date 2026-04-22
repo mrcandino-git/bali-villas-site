@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/app/components/Navbar";
 import ScrollReveal from "@/app/components/ScrollReveal";
-import { villas, WHATSAPP_URL, villaHeroImage, villaWhatsappUrl } from "@/lib/villas";
+import { villas, defaultWhatsappUrl, villaHeroImage, villaWhatsappUrl } from "@/lib/villas";
 
 export const metadata = {
   title: "Our Villas — Bali Five Stars Villas",
@@ -52,7 +52,7 @@ export default function VillasPage() {
               </ScrollReveal>
               <ScrollReveal delay={120}>
                 <a
-                  href={WHATSAPP_URL}
+                  href={defaultWhatsappUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="font-sans text-[11px] uppercase tracking-[0.14em] text-soft-brown border-b border-soft-brown pb-px hover:text-off-black hover:border-off-black transition-colors duration-300 whitespace-nowrap"
@@ -174,7 +174,7 @@ export default function VillasPage() {
             </ScrollReveal>
             <ScrollReveal delay={280}>
               <a
-                href={WHATSAPP_URL}
+                href={defaultWhatsappUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block mt-10 font-sans text-[11px] uppercase tracking-[0.18em] text-white-warm border border-white-warm/45 hover:bg-white-warm hover:text-soft-brown px-10 py-[16px] transition-all duration-300"

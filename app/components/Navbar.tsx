@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 
 const WA_NAV =
-  "https://wa.me/6282146574879?text=Hi%2C%20I%E2%80%99d%20like%20to%20enquire%20about%20a%20villa.";
+  "https://api.whatsapp.com/send?phone=6282146574879&text=Hi%2C%20I%E2%80%99d%20like%20to%20enquire%20about%20a%20villa.";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);

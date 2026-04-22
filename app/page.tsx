@@ -2,7 +2,7 @@ import Image from "next/image";
 import Navbar from "./components/Navbar";
 import VillaCard from "./components/VillaCard";
 import ScrollReveal from "./components/ScrollReveal";
-import { villas, WHATSAPP_URL } from "@/lib/villas";
+import { villas, defaultWhatsappUrl } from "@/lib/villas";
 
 export default function Home() {
   return (
@@ -34,7 +34,7 @@ export default function Home() {
               Five private villas. Book directly. No agencies.
             </p>
             <a
-              href={WHATSAPP_URL}
+              href={defaultWhatsappUrl()}
               target="_blank"
               rel="noopener noreferrer"
               className="group font-sans text-[12px] uppercase tracking-[0.14em] text-white-warm flex items-center gap-2 w-fit"
@@ -169,7 +169,7 @@ export default function Home() {
                   Our Villas
                 </h2>
                 <a
-                  href={WHATSAPP_URL}
+                 href={defaultWhatsappUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hidden md:block font-sans text-[11px] uppercase tracking-[0.12em] text-soft-brown pb-px border-b border-transparent hover:border-soft-brown transition-colors duration-300"
@@ -197,7 +197,7 @@ export default function Home() {
 
             <div className="mt-12 md:hidden text-center">
               <a
-                href={WHATSAPP_URL}
+                href={defaultWhatsappUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-sans text-[12px] uppercase tracking-[0.12em] text-soft-brown border-b border-soft-brown pb-1"
@@ -370,7 +370,7 @@ export default function Home() {
 
             <ScrollReveal delay={290}>
               <a
-                href={WHATSAPP_URL}
+                href={defaultWhatsappUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block mt-12 font-sans text-[11px] uppercase tracking-[0.18em] text-white-warm border border-white-warm/48 hover:bg-white-warm hover:text-soft-brown px-12 py-[18px] transition-all duration-300"

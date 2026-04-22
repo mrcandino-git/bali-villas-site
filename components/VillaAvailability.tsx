@@ -44,10 +44,6 @@ export default function VillaAvailability({
 
   return (
     <section className="px-6 md:px-16 py-12 max-w-7xl mx-auto">
-      <p className="text-xs tracking-[0.4em] uppercase text-stone-400 mb-6">
-        Availability
-      </p>
-
       <div className="bg-white rounded-2xl p-6 shadow-sm border border-stone-200">
         <Calendar
           tileDisabled={({ date, view }) => {
@@ -57,22 +53,22 @@ export default function VillaAvailability({
           }}
         />
 
-        <div className="flex flex-wrap items-center gap-6 mt-4 text-[12px] text-stone-500">
+        <div className="mt-4 flex items-center gap-6 text-sm text-stone-500">
           <div className="flex items-center gap-2">
-            <span className="inline-block w-4 h-4 rounded-sm bg-stone-300" />
-            <span>Occupied</span>
+            <span className="inline-block w-4 h-4 rounded-sm border border-stone-300 bg-white" />
+            <span>Available</span>
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="inline-block w-4 h-4 rounded-sm bg-white border border-stone-300" />
-            <span>Available</span>
+            <span className="inline-block w-4 h-4 rounded-sm bg-stone-300" />
+            <span>Booked</span>
           </div>
         </div>
 
         <p className="text-sm text-stone-500 mt-4">
           {loading
             ? "Loading live availability..."
-            : "Greyed out dates are unavailable. Contact us on WhatsApp to confirm your stay."}
+            : "Contact us on WhatsApp to confirm your stay."}
         </p>
       </div>
     </section>

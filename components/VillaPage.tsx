@@ -40,7 +40,22 @@ export default function VillaPage({
   const galleryImages = heroImage
     ? allImages.filter((img) => img !== heroImage)
     : allImages;
+function openWhatsApp(message: string) {
+  const encodedMessage = encodeURIComponent(message);
+  const isMobile =
+    typeof window !== "undefined" &&
+    /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
+  const mobileUrl = `whatsapp://send?phone=6282146574879&text=${encodedMessage}`;
+  const webUrl = `https://api.whatsapp.com/send?phone=6282146574879&text=${encodedMessage}`;
+
+  if (isMobile) {
+    window.location.href = mobileUrl;
+    return;
+  }
+
+  window.open(webUrl, "_blank", "noopener,noreferrer");
+}
   return (
     <div className="min-h-screen bg-[#f5f0eb] text-stone-900 font-sans">
       <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 py-5 bg-[#f5f0eb]/90 backdrop-blur-md border-b border-stone-200/60">
@@ -51,14 +66,19 @@ export default function VillaPage({
           ← Bali Five Stars Villas
         </Link>
 
-        <a
-          href={defaultWhatsappUrl()}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="px-5 py-2 bg-stone-900 text-white text-xs tracking-widest uppercase rounded-full hover:bg-stone-700 transition-colors"
-        >
+      
           Enquire
-        </a>
+        <button
+            type="button"
+            onClick={() =>
+              openWhatsApp(
+                `Hi, I’d like to check availability and the best direct rate for ${villa.name} in ${villa.location}.`
+              )
+            }
+            className="rounded-full bg-off-black px-8 py-4 font-sans text-[11px] uppercase tracking-[0.16em] text-white-warm transition hover:bg-soft-brown"
+          >
+            Enquire
+        </button>
       </header>
 
       <section className="relative h-[70vh] min-h-[500px] flex items-center justify-center text-center pt-20 overflow-hidden">

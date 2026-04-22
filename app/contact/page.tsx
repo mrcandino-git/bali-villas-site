@@ -1,5 +1,5 @@
 import Navbar from "../components/Navbar";
-
+import { villas, defaultWhatsappUrl } from "@/lib/villas";
 export default function ContactPage() {
   return (
     <>
@@ -38,7 +38,7 @@ export default function ContactPage() {
               </p>
 
               <a
-                href="https://wa.me/6282146574879?text=Hi%2C%20I%E2%80%99d%20like%20to%20check%20availability%20and%20the%20best%20direct%20rate%20for%20your%20villas%20in%20Bali."
+                href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block mt-8 font-sans text-[11px] uppercase tracking-[0.16em] text-off-black border border-off-black/30 hover:bg-off-black hover:text-white-warm px-8 py-[16px] transition-all duration-300"
