@@ -1,8 +1,13 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
-import fs from "fs";
-import path from "path";
-import { Villa, defaultWhatsappUrl } from "@/lib/villas";
+import {
+  Villa,
+  villaHeroImage,
+  defaultWhatsappUrl,
+  villaWhatsappUrl,
+} from "@/lib/villas";
 import VillaAvailability from "@/components/VillaAvailability";
 
 const WA_ICON = (
@@ -11,51 +16,21 @@ const WA_ICON = (
   </svg>
 );
 
+function openWhatsApp(url: string) {
+  if (typeof window === "undefined") return;
+  window.location.href = url;
+}
+
 export default function VillaPage({
   villa,
 }: {
   villa: Villa;
   bookedDates?: string[];
 }) {
-  const villaFolder = `villa-${villa.slug}`;
-  const imageDir = path.join(process.cwd(), "public", "villas", villaFolder);
+  const heroImage = villaHeroImage(villa);
+  const villaWaUrl = villaWhatsappUrl(villa);
+  const genericWaUrl = defaultWhatsappUrl();
 
-  const allowedExtensions = [".jpg", ".jpeg", ".png", ".webp"];
-
-  const allImages: string[] = fs.existsSync(imageDir)
-    ? fs
-        .readdirSync(imageDir)
-        .filter((file) =>
-          allowedExtensions.includes(path.extname(file).toLowerCase())
-        )
-        .sort()
-        .map((file) => `/villas/${villaFolder}/${file}`)
-    : [];
-
-  const heroImage =
-    allImages.find((img) => /hero\.(jpg|jpeg|png|webp)$/i.test(img)) ||
-    allImages[0] ||
-    null;
-
-  const galleryImages = heroImage
-    ? allImages.filter((img) => img !== heroImage)
-    : allImages;
-function openWhatsApp(message: string) {
-  const encodedMessage = encodeURIComponent(message);
-  const isMobile =
-    typeof window !== "undefined" &&
-    /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-
-  const mobileUrl = `whatsapp://send?phone=6282146574879&text=${encodedMessage}`;
-  const webUrl = `https://api.whatsapp.com/send?phone=6282146574879&text=${encodedMessage}`;
-
-  if (isMobile) {
-    window.location.href = mobileUrl;
-    return;
-  }
-
-  window.open(webUrl, "_blank", "noopener,noreferrer");
-}
   return (
     <div className="min-h-screen bg-[#f5f0eb] text-stone-900 font-sans">
       <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 py-5 bg-[#f5f0eb]/90 backdrop-blur-md border-b border-stone-200/60">
@@ -66,38 +41,23 @@ function openWhatsApp(message: string) {
           ← Bali Five Stars Villas
         </Link>
 
-      
-          Enquire
         <button
-            type="button"
-            onClick={() =>
-              openWhatsApp(
-                `Hi, I’d like to check availability and the best direct rate for ${villa.name} in ${villa.location}.`
-              )
-            }
-            className="rounded-full bg-off-black px-8 py-4 font-sans text-[11px] uppercase tracking-[0.16em] text-white-warm transition hover:bg-soft-brown"
-          >
-            Enquire
+          type="button"
+          onClick={() => openWhatsApp(villaWaUrl)}
+          className="rounded-full bg-stone-900 px-6 py-3 text-white text-xs tracking-widest uppercase hover:bg-stone-700 transition-colors"
+        >
+          Enquire
         </button>
       </header>
 
       <section className="relative h-[70vh] min-h-[500px] flex items-center justify-center text-center pt-20 overflow-hidden">
-        {heroImage ? (
-          <Image
-            src={heroImage}
-            alt={villa.name}
-            fill
-            priority
-            className="object-cover"
-          />
-        ) : (
-          <div
-            className="absolute inset-0"
-            style={{
-              background: `linear-gradient(135deg, ${villa.accentColor}22 0%, #f5f0eb 100%)`,
-            }}
-          />
-        )}
+        <Image
+          src={heroImage}
+          alt={villa.name}
+          fill
+          priority
+          className="object-cover"
+        />
 
         <div className="absolute inset-0 bg-gradient-to-b from-stone-900/20 via-stone-900/35 to-stone-900/70" />
 
@@ -120,43 +80,16 @@ function openWhatsApp(message: string) {
             <span>{villa.baths} Bathrooms</span>
           </div>
 
-          <a
-            href={defaultWhatsappUrl()}
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            type="button"
+            onClick={() => openWhatsApp(genericWaUrl)}
             className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-white text-stone-900 text-sm tracking-widest uppercase rounded-full hover:bg-stone-100 transition-colors"
           >
             {WA_ICON}
             Book Direct via WhatsApp
-          </a>
+          </button>
         </div>
       </section>
-
-      {galleryImages.length > 0 && (
-        <section className="px-6 md:px-16 py-16 max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-            {galleryImages.map((src, i) => (
-              <div
-                key={src}
-                className={`relative rounded-xl overflow-hidden ${
-                  i === 0 ? "col-span-2 h-80 md:h-96" : "h-40 md:h-44"
-                }`}
-              >
-                <Image
-                  src={src}
-                  alt={`${villa.name} - ${src
-                    .split("/")
-                    .pop()
-                    ?.replace(/\.(jpg|jpeg|png|webp)$/i, "")
-                    .replace(/-/g, " ")}`}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
 
       <section className="px-6 md:px-16 py-12 max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-start">
         <div>
@@ -168,15 +101,14 @@ function openWhatsApp(message: string) {
             {villa.description}
           </p>
 
-          <a
-            href={defaultWhatsappUrl()}
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            type="button"
+            onClick={() => openWhatsApp(genericWaUrl)}
             className="inline-flex items-center justify-center gap-3 mt-10 px-7 py-4 bg-stone-900 text-white text-sm tracking-widest uppercase rounded-full hover:bg-stone-700 transition-colors"
           >
             {WA_ICON}
             Book Direct via WhatsApp
-          </a>
+          </button>
         </div>
 
         <div>
@@ -217,15 +149,14 @@ function openWhatsApp(message: string) {
           the hour.
         </p>
 
-        <a
-          href={defaultWhatsappUrl()}
-          target="_blank"
-          rel="noopener noreferrer"
+        <button
+          type="button"
+          onClick={() => openWhatsApp(genericWaUrl)}
           className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-white text-stone-900 text-sm tracking-widest uppercase rounded-full font-semibold hover:bg-stone-100 transition-colors"
         >
           {WA_ICON}
           Book Direct via WhatsApp
-        </a>
+        </button>
       </section>
 
       <footer className="bg-stone-900 border-t border-stone-800 py-8 px-6 md:px-16">
@@ -236,26 +167,24 @@ function openWhatsApp(message: string) {
 
           <span>© 2026 · All rights reserved</span>
 
-          <a
-            href={defaultWhatsappUrl()}
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            type="button"
+            onClick={() => openWhatsApp(genericWaUrl)}
             className="hover:text-white transition-colors"
           >
             +62 821-4657-4879
-          </a>
+          </button>
         </div>
       </footer>
 
-      <a
-        href={defaultWhatsappUrl()}
-        target="_blank"
-        rel="noopener noreferrer"
+      <button
+        type="button"
+        onClick={() => openWhatsApp(villaWaUrl)}
         aria-label="Chat on WhatsApp"
         className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 bg-[#25D366] rounded-full shadow-lg hover:bg-[#1ebe5d] transition-colors"
       >
         {WA_ICON}
-      </a>
+      </button>
     </div>
   );
 }
