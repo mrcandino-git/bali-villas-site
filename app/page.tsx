@@ -22,7 +22,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/20 to-black/62" />
 
           <div className="absolute bottom-16 sm:bottom-22 md:bottom-28 lg:bottom-32 left-6 md:left-16 lg:left-24 right-6 md:right-auto">
-            <p className="font-sans text-[14px] md:text-[16px] uppercase tracking-[0.28em] text-white-warm/75 mb-5">
+            <p className="font-sans text-[10px] md:text-[11px] uppercase tracking-[0.28em] text-white-warm/55 mb-5">
               Seminyak · Petitenget · Canggu
             </p>
             <h1 className="font-serif font-light italic text-white-warm leading-[1.02] text-[48px] sm:text-[62px] md:text-[78px] lg:text-[92px] max-w-[720px]">
@@ -30,14 +30,14 @@ export default function Home() {
               <br />
               Book Direct.
             </h1>
-            <p className="mt-6 text-[18px] md:text-[22px] text-white/90 font-sans font-light">
+            <p className="mt-6 text-[14px] md:text-[16px] text-white/80 font-sans font-light">
               Five private villas. Better rates. Personal service. No agencies.
             </p>
             <a
               href={defaultWhatsappUrl()}
               target="_blank"
               rel="noopener noreferrer"
-              className="group font-sans text-[14px] md:text-[16px] uppercase tracking-[0.14em] text-white-warm flex items-center gap-2 w-fit"
+              className="group font-sans text-[12px] uppercase tracking-[0.14em] text-white-warm flex items-center gap-2 w-fit"
             >
               <span className="border-b border-white-warm/38 group-hover:border-white-warm transition-colors duration-300 pb-px">
                 Check Dates &amp; Rates
