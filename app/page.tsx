@@ -422,7 +422,7 @@ export default function Home() {
                 Contact
               </a>
               <a
-                href="https://wa.me/6282146574879"
+                href="https://api.whatsapp.com/send?phone=6282146574879&text=Hi%2C%20I%E2%80%99d%20like%20to%20check%20availability%20and%20the%20best%20direct%20rate%20for%20your%20villas%20in%20Bali."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-sans text-[12px] text-white-warm/50 hover:text-white-warm transition-colors duration-300 w-fit"
